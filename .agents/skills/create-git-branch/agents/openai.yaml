@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Git Branch"
+  short_description: "Create a descriptive branch from master"
+  default_prompt: "Use $create-git-branch to create a new branch from master for my task."

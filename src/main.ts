@@ -1,33 +1,84 @@
-//TIP With Search Everywhere, you can find any action, file, or symbol in your project. Press <shortcut actionId="Shift"/> <shortcut actionId="Shift"/>, type in <b>terminal</b>, and press <shortcut actionId="EditorEnter"/>. Then run <shortcut raw="npm run dev"/> in the terminal and click the link in its output to open the app in the browser.
-export function setupCounter(element: HTMLElement) {
-  //TIP Try <shortcut actionId="GotoDeclaration"/> on <shortcut raw="counter"/> to see its usages. You can also use this shortcut to jump to a declaration – try it on <shortcut raw="counter"/> on line 13.
-  let counter = 0;
+import { asset, contact, header, setupSite, themeToggle } from './site';
 
-  const adjustCounterValue = (value: number)  => {
-    if (value >= 100) return value - 100;
-    if (value <= -100) return value + 100;
-    return value;
-  };
+const strengths = [
+  { title: 'Career', icon: 'about-career.svg', copy: 'I build reliable web products across frontend systems, APIs, and the infrastructure that connects them.' },
+  { title: 'Strengths', icon: 'about-strengths.svg', copy: 'Product-minded engineering, thoughtful collaboration, and a bias toward simple, maintainable solutions.' },
+  { title: 'Beyond code', icon: 'about-hobbies.svg', copy: 'Football, design, and the communities that make Kampala an energetic place to create from.' },
+];
 
-  const setCounter = (value: number) => {
-    counter = adjustCounterValue(value);
-    //TIP WebStorm has lots of inspections to help you catch issues in your project. It also has quick fixes to help you resolve them. Press <shortcut actionId="ShowIntentionActions"/> on <shortcut raw="text"/> and choose <b>Inline variable</b> to clean up the redundant code.
-    const text = `${counter}`;
-    element.innerHTML = text;
-  };
+const technologies = [
+  { title: 'Frontend', image: 'tech-frontend.svg', copy: 'Semantic HTML, modern CSS, TypeScript, and accessible interfaces that remain fast on real devices.' },
+  { title: 'Libraries', image: 'tech-vue.svg', copy: 'Component-driven products built with Vue, Angular, React, and pragmatic design systems.' },
+  { title: 'Backend', image: 'tech-node.png', copy: 'Node.js services, REST APIs, relational data, integrations, testing, and dependable delivery.' },
+];
 
-  document.getElementById('increaseByOne')?.addEventListener('click', () => setCounter(counter + 1));
-  document.getElementById('decreaseByOne')?.addEventListener('click', () => setCounter(counter - 1));
-  document.getElementById('increaseByTwo')?.addEventListener('click', () => setCounter(counter + 2));
+const testimonials = [
+  { name: 'Mark Ayebare', photo: 'testimonial-mark.png', quote: 'Arnold is a strong team player who consistently delivers thoughtful frontend work.' },
+  { name: 'Arthor Nangai', photo: 'testimonial-arthor.png', quote: 'Arnold delivered on schedule, communicated clearly, and handled the work professionally from start to finish.' },
+  { name: 'Joshua Lugada', photo: 'testimonial-joshua.png', quote: 'I am thankful for Arnold’s care and contribution in helping us develop our program.' },
+];
 
-  //TIP In the app running in the browser, you’ll find that clicking <b>-2</b> doesn't work. To fix that, rewrite it using the code from lines 19 - 21 as examples of the logic.
-  document.getElementById('decreaseByTwo')
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+  ${header('home')}
+  <main id="main">
+    <section class="hero shell">
+      <div class="hero-copy reveal">
+        ${themeToggle()}
+        <p class="eyebrow">Full-stack software engineer · Kampala, Uganda</p>
+        <h1>Arnold <span>Katumba</span></h1>
+        <p class="hero-intro">I design and build purposeful web products—from polished interfaces to the services behind them.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact">Hire me</a>
+          <a class="text-link" href="/work.html">Explore selected work <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        ${['hero-react.svg','hero-docker.svg','hero-sass.svg','hero-angular.png','hero-node.png','hero-html.svg','hero-css.svg','hero-vue.svg'].map((name, index) => `<span class="orbit-item orbit-${index + 1}"><img src="${asset(name)}" alt="" /></span>`).join('')}
+        <span class="orbit-core">AK</span>
+      </div>
+      <aside class="metrics reveal" aria-label="Professional highlights">
+        <div><strong>End-to-end</strong><span>Product delivery</span></div>
+        <div><strong>Frontend</strong><span>Systems and UX</span></div>
+        <div><strong>Backend</strong><span>APIs and data</span></div>
+        <a href="mailto:arnoldkatumba@gmail.com?subject=CV%20request">View my CV <span aria-hidden="true">↗</span></a>
+      </aside>
+    </section>
 
-  //TIP Let’s see how to review and commit your changes. Press <shortcut actionId="GotoAction"/> and look for <b>commit</b>. Try checking the diff for a file – double-click main.ts to do that.
-  setCounter(0);
-}
+    <section class="about section shell" id="about" aria-labelledby="about-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">A little context</p>
+        <h2 id="about-title">About me</h2>
+        <p>I care about useful software, the people using it, and the teams responsible for keeping it healthy.</p>
+      </div>
+      <div class="about-layout">
+        <div class="about-list">
+          ${strengths.map((item) => `<article class="about-card reveal"><img src="${asset(item.icon)}" alt="" width="96" height="96" loading="lazy" decoding="async" /><div><h3>${item.title}</h3><p>${item.copy}</p></div></article>`).join('')}
+        </div>
+        <figure class="portrait reveal"><span></span><img src="${asset('portrait.png')}" alt="Arnold Katumba" loading="lazy" decoding="async" /></figure>
+      </div>
+    </section>
 
-//TIP To find text strings in your project, you can use the <shortcut actionId="FindInPath"/> shortcut. Press it and type in <b>counter</b> – you’ll get all matches in one place.
-setupCounter(document.getElementById('counter-value') as HTMLElement);
+    <section class="section technologies" aria-labelledby="technologies-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Capabilities</p>
+          <h2 id="technologies-title">Technologies</h2>
+          <p>A flexible toolkit chosen around the product—not the other way around.</p>
+        </div>
+        <div class="technology-grid">
+          ${technologies.map((item, index) => `<article class="technology-card reveal ${index === 1 ? 'featured' : ''}"><div class="technology-art"><img src="${asset(item.image)}" alt="" loading="lazy" decoding="async" /></div><h3>${item.title}</h3><p>${item.copy}</p></article>`).join('')}
+        </div>
+        <a class="button button-primary section-action" href="/work.html">View my work <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
 
-//TIP There's much more in WebStorm to help you be more productive. Press <shortcut actionId="Shift"/> <shortcut actionId="Shift"/> and search for <b>Learn WebStorm</b> to open our learning hub with more things for you to try.
+    <section class="section testimonials shell" aria-labelledby="testimonials-title">
+      <div class="section-heading reveal"><p class="eyebrow">Kind words</p><h2 id="testimonials-title">Testimonials</h2></div>
+      <div class="testimonial-grid">
+        ${testimonials.map((item) => `<figure class="testimonial reveal"><div class="person"><img src="${asset(item.photo)}" alt="" loading="lazy" decoding="async" /><figcaption>${item.name}</figcaption></div><blockquote>“${item.quote}”</blockquote></figure>`).join('')}
+      </div>
+    </section>
+    ${contact()}
+  </main>`;
+
+setupSite();

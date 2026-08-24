@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate Commit Message"
+  short_description: "Summarize Git changes in a brief commit message"
+  default_prompt: "Use $generate-commit-message to write a brief commit message for my current changes."

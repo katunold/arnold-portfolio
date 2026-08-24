@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate PR Description"
+  short_description: "Summarize branch changes for a pull request"
+  default_prompt: "Use $generate-pr-description to draft a concise PR description for my current branch."
