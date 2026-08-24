@@ -17,7 +17,7 @@ export const header = (active: 'home' | 'work') => `
         <a href="/#about">About</a>
         <a ${active === 'work' ? 'aria-current="page"' : ''} href="/work.html">Work</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="mailto:arnoldkatumba@gmail.com?subject=CV%20request">View CV</a>
+        <a class="nav-cta" href="mailto:katunold94@gmail.com?subject=CV%20request">View CV</a>
       </nav>
     </div>
   </header>`;
@@ -37,13 +37,13 @@ export const contact = () => `
         <div>
           <h3>Find me online</h3>
           <div class="social-links">
-            <a href="https://github.com/arnoldkatumba" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/arnoldkatumba" rel="noreferrer">LinkedIn</a>
-            <a href="https://twitter.com/arnoldkatumba" rel="noreferrer">X / Twitter</a>
+            <a href="https://github.com/katunold" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/katumba-arnold-7a1270b3/" rel="noreferrer">LinkedIn</a>
+            <a href="https://x.com/mwami_katumba" rel="noreferrer">X / Twitter</a>
           </div>
         </div>
         <address>
-          <a href="mailto:arnoldkatumba@gmail.com">arnoldkatumba@gmail.com</a>
+          <a href="mailto:katunold94@gmail.com">katunold94@gmail.com</a>
           <a href="tel:+256785067219">+256 785 067 219</a>
         </address>
       </div>

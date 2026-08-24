@@ -13,9 +13,42 @@ const technologies = [
 ];
 
 const testimonials = [
-  { name: 'Mark Ayebare', photo: 'testimonial-mark.png', quote: 'Arnold is a strong team player who consistently delivers thoughtful frontend work.' },
-  { name: 'Arthor Nangai', photo: 'testimonial-arthor.png', quote: 'Arnold delivered on schedule, communicated clearly, and handled the work professionally from start to finish.' },
-  { name: 'Joshua Lugada', photo: 'testimonial-joshua.png', quote: 'I am thankful for Arnold’s care and contribution in helping us develop our program.' },
+  {
+    name: 'Eric Snyder',
+    role: 'Chief Technology Officer · LevelTen Energy',
+    photo: 'testimonial-eric.jpeg',
+    quote: 'Arnold worked with LevelTen on our Angular and Node web application. We saw him grow his skills as a web developer while taking time to learn features, contribute during meetings, and care about the end-user experience.',
+  },
+  {
+    name: 'Constantine Asava',
+    role: 'Senior Software Engineer · ChurchPad',
+    photo: 'testimonial-constantine.jpeg',
+    quote: 'Arnold took the initiative to onboard me as a new developer, familiarising me with the team conventions and codebase. He is a very conscientious developer, was a great asset to the project, and made joining the team much easier.',
+  },
+  {
+    name: 'Matthew O. Wacha',
+    role: 'Lead Software Engineer · NOBON',
+    photo: 'testimonial-matthew.jpeg',
+    quote: 'Having managed Arnold across two teams, I saw him consistently demonstrate a strong understanding of his tasks. The team relied on his problem-solving skills when challenges arose. He is also a great communicator who readily steps up to the occasion.',
+  },
+  {
+    name: 'Naume Kizza',
+    role: 'Full Stack Engineer · Thrivetec Limited',
+    photo: 'testimonial-naume.jpeg',
+    quote: 'Arnold is a proactive, creative, and hard-working team player who goes the extra mile. He readily shares his knowledge, listens carefully, and puts himself in the client’s shoes. His self-driven approach and positive collaboration make him a great asset to any team.',
+  },
+  {
+    name: 'Herman Lule',
+    role: 'Frontend Web Developer · Xtract',
+    photo: 'testimonial-herman.jpeg',
+    quote: "Arnold is an organized team player with a keen eye for improvement, consistently seeking the right solution rather than one that merely works. Across three teams, I have valued the energy and motivation he brings. He is a truly talented engineer.",
+  },
+  {
+    name: 'Jackie Ochola',
+    role: 'General Manager · Wave Mobile Money',
+    photo: 'testimonial-jackie.jpeg',
+    quote: 'Arnold is a brilliant, highly skilled developer who works hard and consistently delivers quality results. He pursues self-improvement while bringing the team along and readily tackles new challenges. His great attitude and collaborative spirit make him a joy to work with.',
+  },
 ];
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -72,10 +105,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </div>
     </section>
 
-    <section class="section testimonials shell" aria-labelledby="testimonials-title">
+    <section class="section testimonials shell" id="testimonials" aria-labelledby="testimonials-title">
       <div class="section-heading reveal"><p class="eyebrow">Kind words</p><h2 id="testimonials-title">Testimonials</h2></div>
       <div class="testimonial-grid">
-        ${testimonials.map((item) => `<figure class="testimonial reveal"><div class="person"><img src="${asset(item.photo)}" alt="" loading="lazy" decoding="async" /><figcaption>${item.name}</figcaption></div><blockquote>“${item.quote}”</blockquote></figure>`).join('')}
+        ${testimonials.map((item) => `<figure class="testimonial reveal"><figcaption class="person"><img src="${asset(item.photo)}" alt="" loading="lazy" decoding="async" /><span><strong>${item.name}</strong><small>${item.role}</small></span></figcaption><blockquote>“${item.quote}”</blockquote></figure>`).join('')}
       </div>
     </section>
     ${contact()}

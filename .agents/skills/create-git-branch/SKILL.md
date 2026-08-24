@@ -24,12 +24,9 @@ If the task is too vague to produce a meaningful name, ask for the intended chan
 
 1. Confirm the current directory is inside the intended repository with `git rev-parse --show-toplevel`.
 2. Inspect `git status --short --branch`. If tracked or untracked changes exist, stop and explain that switching from `master` could carry those changes. Do not stash, commit, discard, or move them without explicit permission.
-3. Check whether `origin` exists with `git remote get-url origin`.
-4. If `origin` exists, run `git fetch origin master`, then use `origin/master` as the base. If fetching fails, report the failure; do not silently branch from a potentially stale local branch.
-5. If no `origin` exists, verify local `master` with `git show-ref --verify refs/heads/master` and use `master` as the base.
-6. Verify the proposed name does not already exist locally with `git show-ref --verify refs/heads/<branch>` or remotely with `git show-ref --verify refs/remotes/origin/<branch>`. If it exists, stop and ask whether to switch to it or choose a different descriptive name.
-7. Create and switch to the branch with `git switch --create <branch> <base>`.
-8. Confirm the result with `git status --short --branch` and `git merge-base --is-ancestor <base> HEAD`.
+3. Verify the proposed name does not already exist locally with `git show-ref --verify refs/heads/<branch>` or remotely with `git show-ref --verify refs/remotes/origin/<branch>`. If it exists, stop and ask whether to switch to it or choose a different descriptive name.
+4. Create and switch to the branch with `git switch --create <branch> <base>`.
+5. Confirm the result with `git status --short --branch` and `git merge-base --is-ancestor <base> HEAD`.
 
 Do not substitute `main` when `master` is missing. Do not push the branch unless the user explicitly asks.
 
