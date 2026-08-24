@@ -17,16 +17,14 @@ export const header = (active: 'home' | 'work') => `
         <a href="/#about">About</a>
         <a ${active === 'work' ? 'aria-current="page"' : ''} href="/work.html">Work</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="mailto:katunold94@gmail.com?subject=CV%20request">View CV</a>
+        <button class="theme-toggle theme-toggle-compact" type="button" aria-pressed="false">
+          <span class="toggle-track" aria-hidden="true"><span></span></span>
+          <span class="theme-label">Theme</span>
+        </button>
+        <a class="nav-cta" href="/Arnold-Katumba-CV.pdf" download="Arnold-Katumba-CV.pdf">Download CV</a>
       </nav>
     </div>
   </header>`;
-
-export const themeToggle = () => `
-  <button class="theme-toggle" type="button" aria-pressed="false">
-    <span class="toggle-track" aria-hidden="true"><span></span></span>
-    <span class="theme-label">Toggle dark mode</span>
-  </button>`;
 
 export const contact = () => `
   <section class="contact-section" id="contact" aria-labelledby="contact-title">
@@ -64,8 +62,9 @@ export function setupSite() {
     const isDark = theme === 'dark';
     document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach((button) => {
       button.setAttribute('aria-pressed', String(isDark));
+      button.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
       const label = button.querySelector('.theme-label');
-      if (label) label.textContent = `Toggle ${isDark ? 'light' : 'dark'} mode`;
+      if (label) label.textContent = isDark ? 'Light' : 'Dark';
     });
     document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#181c1f' : '#ffffff');
   };
