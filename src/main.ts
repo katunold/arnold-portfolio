@@ -1,4 +1,4 @@
-import { asset, contact, header, setupSite, themeToggle } from './site';
+import { asset, contact, header, setupSite } from './site';
 
 const strengths = [
   { title: 'Career', icon: 'about-career.svg', copy: 'I build reliable web products across frontend systems, APIs, and the infrastructure that connects them.' },
@@ -56,7 +56,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <main id="main">
     <section class="hero shell">
       <div class="hero-copy reveal">
-        ${themeToggle()}
         <p class="eyebrow">Full-stack software engineer · Kampala, Uganda</p>
         <h1>Arnold <span>Katumba</span></h1>
         <p class="hero-intro">I design and build purposeful web products—from polished interfaces to the services behind them.</p>
@@ -70,10 +69,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <span class="orbit-core">AK</span>
       </div>
       <aside class="metrics reveal" aria-label="Professional highlights">
-        <div><strong>End-to-end</strong><span>Product delivery</span></div>
-        <div><strong>Frontend</strong><span>Systems and UX</span></div>
-        <div><strong>Backend</strong><span>APIs and data</span></div>
-        <a href="mailto:arnoldkatumba@gmail.com?subject=CV%20request">View my CV <span aria-hidden="true">↗</span></a>
+        <div><strong>04</strong><span>Selected products</span></div>
+        <div><strong>06</strong><span>LinkedIn recommendations</span></div>
+        <div><strong>Full-stack</strong><span>Interfaces to APIs</span></div>
+        <a href="/Arnold-Katumba-CV.pdf" download="Arnold-Katumba-CV.pdf">Download my CV <span aria-hidden="true">↓</span></a>
       </aside>
     </section>
 
@@ -91,14 +90,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </div>
     </section>
 
-    <section class="section technologies" aria-labelledby="technologies-title">
+    <section class="section technologies" id="technologies" aria-labelledby="technologies-title">
       <div class="shell">
         <div class="section-heading reveal">
           <p class="eyebrow">Capabilities</p>
           <h2 id="technologies-title">Technologies</h2>
           <p>A flexible toolkit chosen around the product—not the other way around.</p>
         </div>
-        <div class="technology-grid">
+        <div class="technology-grid" role="region" aria-label="Technology capabilities" tabindex="0">
           ${technologies.map((item, index) => `<article class="technology-card reveal ${index === 1 ? 'featured' : ''}"><div class="technology-art"><img src="${asset(item.image)}" alt="" loading="lazy" decoding="async" /></div><h3>${item.title}</h3><p>${item.copy}</p></article>`).join('')}
         </div>
         <a class="button button-primary section-action" href="/work.html">View my work <span aria-hidden="true">→</span></a>
@@ -107,7 +106,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <section class="section testimonials shell" id="testimonials" aria-labelledby="testimonials-title">
       <div class="section-heading reveal"><p class="eyebrow">Kind words</p><h2 id="testimonials-title">Testimonials</h2></div>
-      <div class="testimonial-grid">
+      <div class="testimonial-grid" role="region" aria-label="Recommendations" tabindex="0">
         ${testimonials.map((item) => `<figure class="testimonial reveal"><figcaption class="person"><img src="${asset(item.photo)}" alt="" loading="lazy" decoding="async" /><span><strong>${item.name}</strong><small>${item.role}</small></span></figcaption><blockquote>“${item.quote}”</blockquote></figure>`).join('')}
       </div>
     </section>
