@@ -145,8 +145,8 @@ h1, h2, h3, p, figure, blockquote { margin-top: 0; }
 .about-card h3 { font-size: 24px; margin-bottom: 7px; }
 .about-card p { color: var(--muted); margin-bottom: 0; }
 .portrait { position: relative; min-height: 570px; display: flex; align-items: end; justify-content: center; margin: 0; }
-.portrait span { position: absolute; inset: 17% 0 5%; background: var(--accent); border-radius: 48% 52% 48% 52% / 60% 38% 62% 40%; transform: rotate(-9deg); }
-.portrait img { position: relative; z-index: 1; width: 380px; max-height: 560px; object-fit: contain; object-position: bottom; }
+.portrait span { position: absolute; inset: 32% 0 12%; background: var(--accent); border-radius: 48% 52% 48% 52% / 60% 38% 62% 40%; transform: rotate(-9deg); }
+.portrait img { position: relative; z-index: 1; width: 550px; max-height: 840px; object-fit: contain; object-position: bottom; transform: translateY(-78px); }
 
 .technologies { position: relative; background: var(--bg-soft); overflow: hidden; }
 .technologies::before { content: 'A'; position: absolute; left: -180px; top: 210px; font-size: 650px; line-height: .8; font-weight: 900; color: color-mix(in srgb, var(--text) 4%, transparent); transform: rotate(-20deg); }
@@ -233,8 +233,9 @@ address { display: flex; flex-direction: column; gap: 14px; font-style: normal; 
   .metrics > a { min-height: 94px; }
   .section-heading h2::before, .section-heading h2::after { width: 38px; margin-inline: 14px; }
   .about-layout { grid-template-columns: 1fr; gap: 30px; }
-  .portrait { grid-row: 1; min-height: 440px; }
-  .portrait img { height: 430px; width: auto; }
+  .portrait { grid-row: 1; width: min(480px, 100%); min-height: 480px; margin-inline: auto; }
+  .portrait span { inset: 30% 4% 12%; }
+  .portrait img { width: min(430px, 100%); height: auto; max-height: none; transform: translateY(-32px); }
   .about-card, .about-card:nth-child(even) { transform: none; grid-template-columns: 92px 1fr; padding: 28px; background: var(--surface-raised); box-shadow: var(--shadow-soft); border-radius: 8px; }
   .about-card:nth-child(even).reveal, .about-card:nth-child(even).reveal.is-visible { transform: translateY(0); }
   .about-card img { width: 84px; height: 84px; }
@@ -265,8 +266,9 @@ address { display: flex; flex-direction: column; gap: 14px; font-style: normal; 
   .about-card, .about-card:nth-child(even) { grid-template-columns: 1fr; text-align: center; }
   .about-card:nth-child(even) img { order: 2; }
   .about-card img { margin-inline: auto; }
-  .portrait { min-height: 360px; }
-  .portrait img { height: 360px; }
+  .portrait { width: 100%; min-height: 390px; }
+  .portrait span { inset: 30% 3% 11%; }
+  .portrait img { width: min(360px, 100%); height: auto; transform: translateY(-24px); }
   .contact-card h2 { font-size: 31px; }
   .work-intro { min-height: 270px; }
   .project-list { padding-top: 42px; }

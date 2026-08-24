@@ -86,7 +86,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <div class="about-list">
           ${strengths.map((item) => `<article class="about-card reveal"><img src="${asset(item.icon)}" alt="" width="96" height="96" loading="lazy" decoding="async" /><div><h3>${item.title}</h3><p>${item.copy}</p></div></article>`).join('')}
         </div>
-        <figure class="portrait reveal"><span></span><img src="${asset('portrait.png')}" alt="Arnold Katumba" loading="lazy" decoding="async" /></figure>
+        <figure class="portrait reveal"><span></span><img src="${asset('portrait-2026.png')}" alt="Arnold Katumba" loading="lazy" decoding="async" /></figure>
       </div>
     </section>
 
